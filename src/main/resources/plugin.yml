@@ -1,0 +1,84 @@
+name: MMORPG
+version: '${version}'
+main: systems.soph.mmorpg.MMORPG
+api-version: '1.20'
+prefix: MMO
+authors: [Sophed]
+description: MMO RPG core plugin.
+website: soph.systems
+commands:
+  party:
+    description: Party commands.
+    usage: /party <create|invite|accept|leave|kick|disband|promote>
+    aliases: [p]
+  partylist:
+    permission: core.partylist
+    description: List all parties.
+    usage: /partylist
+    aliases: [pl]
+  alerts:
+    permission: core.alerts
+    description: Toggle staff alerts.
+    usage: /alerts
+    aliases:
+      - staffalerts
+  staffchat:
+    permission: core.staff
+    description: Staff chat.
+    usage: /staffchat [message]
+    aliases: [sc]
+  channel:
+    description: Channel commands.
+    usage: /channel <global|party>
+    aliases:
+        - c
+        - chat
+  gamemode:
+    permission: core.gamemode
+    description: Change your gamemode.
+    usage: /gamemode <adventure|creative|spectator|survival> [player]
+    aliases:
+        - gm
+        - gmode
+  gmc:
+    permission: core.gamemode
+    description: Change your gamemode to creative.
+    usage: /gmc [player]
+  gms:
+    permission: core.gamemode
+    description: Change your gamemode to survival.
+    usage: /gms [player]
+  gma:
+    permission: core.gamemode
+    description: Change your gamemode to adventure.
+    usage: /gma [player]
+  gmsp:
+    permission: core.gamemode
+    description: Change your gamemode to spectator.
+    usage: /gmsp [player]
+  kit:
+    permission: core.kit
+    description: Kit commands.
+    usage: /kit <save|load|delete> <kit>
+  givekit:
+    permission: core.givekit
+    description: Give a kit to a player.
+    usage: /givekit <player> <kit> [true|false]
+  gold:
+    permission: core.gold
+    description: Gold commands.
+    usage: /gold <set|add|remove|get> <player> <amount>
+  level:
+    permission: core.level
+    description: Level commands.
+    usage: /level <setlevel|addxp|setxp> <player> <amount>
+  items:
+    permission: core.itemmenu
+    description: Open the items menu.
+    usage: /items
+    aliases:
+      - itemmenu
+  test:
+    permission: core.test
+    description: Test commands.
+    usage: /test
