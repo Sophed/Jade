@@ -11,5 +11,7 @@ public class EventRegister {
         new PlayerChat(p);
         new PlayerInteract(p);
         new ExploitPrevention(p);
+        new EntityDamage(p);
+        new EntityLifetimes(p);
     }
 }

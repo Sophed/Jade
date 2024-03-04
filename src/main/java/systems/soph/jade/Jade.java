@@ -1,8 +1,11 @@
 package systems.soph.jade;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import systems.soph.jade.entity.StatsManager;
 import systems.soph.jade.register.CommandRegister;
 import systems.soph.jade.register.EventRegister;
+import systems.soph.jade.utils.EntityUtils;
 
 import java.util.logging.Logger;
 
@@ -22,6 +25,12 @@ public final class Jade extends JavaPlugin {
         new CommandRegister(this);
         new EventRegister(this);
 
+        EntityUtils.loadEntities();
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(
+                Jade.getInstance(),
+                () -> Bukkit.getOnlinePlayers().forEach(StatsManager::actionBarUpdate),
+                0L, 20L
+        );
     }
 
     @Override

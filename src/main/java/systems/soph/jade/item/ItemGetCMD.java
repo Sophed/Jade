@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 import systems.soph.jade.Palette;
+import systems.soph.jade.item.impl.ObsidianDaggerItem;
 import systems.soph.jade.item.impl.SpeedSugarItem;
 
 import java.util.List;
@@ -36,7 +37,8 @@ public class ItemGetCMD implements CommandExecutor {
     }
 
     private static final List<CustomItem> items = List.of(
-            new SpeedSugarItem()
+            new SpeedSugarItem(),
+            new ObsidianDaggerItem()
     );
 
 }

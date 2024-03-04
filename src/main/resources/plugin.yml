@@ -1,10 +1,10 @@
-name: MMORPG
+name: Jade
 version: '${version}'
-main: systems.soph.mmorpg.MMORPG
+main: systems.soph.jade.Jade
 api-version: '1.20'
-prefix: MMO
+prefix: JADE
 authors: [Sophed]
-description: MMO RPG core plugin.
+description: Jade core plugin.
 website: soph.systems
 commands:
   party:
