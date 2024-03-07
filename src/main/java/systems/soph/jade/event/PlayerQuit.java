@@ -7,7 +7,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import systems.soph.jade.Jade;
 import systems.soph.jade.Palette;
+import systems.soph.jade.entity.EnergyManager;
 import systems.soph.jade.entity.HealthManager;
+import systems.soph.jade.entity.ManaManager;
 import systems.soph.jade.entity.StatsManager;
 import systems.soph.jade.party.Party;
 import systems.soph.jade.party.PartyManager;
@@ -40,6 +42,8 @@ public class PlayerQuit implements Listener {
         ChannelManager.removeChannel(player);
         StatsManager.removeEntity(player);
         HealthManager.removeEntity(player);
+        ManaManager.removeEntity(player);
+        EnergyManager.removeEntity(player);
 
     }
 

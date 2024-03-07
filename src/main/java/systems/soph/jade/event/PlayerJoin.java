@@ -8,9 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import systems.soph.jade.Jade;
 import systems.soph.jade.Palette;
-import systems.soph.jade.entity.EntityStats;
-import systems.soph.jade.entity.HealthManager;
-import systems.soph.jade.entity.StatsManager;
+import systems.soph.jade.entity.*;
 import systems.soph.jade.social.ChannelManager;
 import systems.soph.jade.social.ChatChannel;
 import systems.soph.jade.social.levelling.LevelManager;
@@ -46,6 +44,8 @@ public class PlayerJoin implements Listener {
 
         EntityStats stats = StatsManager.getEntityStats(player);
         HealthManager.addEntity(player, stats.getMaxhealth());
+        ManaManager.addEntity(player, stats.getIntellect());
+        EnergyManager.addEntity(player, stats.getEnergy());
 
     }
 

@@ -7,12 +7,14 @@ public class EntityStats {
     int defense;
     int intellect;
     int strength;
+    int energy;
 
-    public EntityStats(int health, int defense, int intellect, int strength) {
+    public EntityStats(int health, int defense, int intellect, int strength, int energy) {
         this.maxhealth = health;
         this.defense = defense;
         this.intellect = intellect;
         this.strength = strength;
+        this.energy = energy;
     }
 
     public int getMaxhealth() {
@@ -38,5 +40,11 @@ public class EntityStats {
     }
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+    public int getEnergy() {
+        return energy;
+    }
+    public void setEnergy(int energy) {
+        this.energy = energy;
     }
 }

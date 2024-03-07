@@ -14,16 +14,30 @@ public class StatsManager {
     public static void actionBarUpdate(Player player) {
         EntityStats entityStats = stats.get(player);
         int health = Math.max(0, HealthManager.getPretty(player));
+        int mana = Math.max(0, ManaManager.getPretty(player));
+        int energy = Math.max(0, EnergyManager.getPretty(player));
 
         int maxHealth;
+        int maxMana;
+        int maxEnergy;
         if (entityStats == null) {
             maxHealth = 20;
+            maxMana = 0;
+            maxEnergy = 100;
         } else {
             maxHealth = entityStats.getMaxhealth();
+            maxMana = entityStats.getIntellect();
+            maxEnergy = entityStats.getEnergy();
         }
 
         Component msg = Component.text("❤ " + health + " / " + maxHealth)
-                .color(Palette.ERROR);
+                .color(Palette.ERROR)
+                .append(Component.text("   "))
+                .append(Component.text("⭐ " + mana + " / " + maxMana)
+                        .color(Palette.ACCENT))
+                        .append(Component.text("   "))
+                        .append(Component.text("⚡ " + energy + " / " + maxEnergy)
+                                .color(Palette.WARNING));
         player.sendActionBar(msg);
     }
 
@@ -41,10 +55,10 @@ public class StatsManager {
     }
 
     public static EntityStats defaultPlayerStats() {
-        return new EntityStats(100, 0, 0, 0);
+        return new EntityStats(100, 0, 100, 0, 100);
     }
     public static EntityStats defaultMobStats() {
-        return new EntityStats(50, 0, 0, 0);
+        return new EntityStats(50, 0, 50, 0, 50);
     }
 
 }
