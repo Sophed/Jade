@@ -43,12 +43,13 @@ public class PlayerJoin implements Listener {
         LevelManager.updateXpBar(player);
         StatsManager.addEntity(player, StatsManager.defaultPlayerStats());
 
+        GoldUtils.loadGold(player.getUniqueId());
+        StatsManager.loadStats(player);
         EntityStats stats = StatsManager.getEntityStats(player);
+
         HealthManager.addEntity(player, stats.getMaxhealth());
         ManaManager.addEntity(player, stats.getIntellect());
         EnergyManager.addEntity(player, stats.getEnergy());
-
-        GoldUtils.loadGold(player.getUniqueId());
 
     }
 

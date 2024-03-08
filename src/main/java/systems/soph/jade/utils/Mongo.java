@@ -63,34 +63,30 @@ public class Mongo {
             ArrayList<JsonObject> jsonResults = new ArrayList<>();
             results.forEach(d -> jsonResults.add(new JsonObject(d.toJson())));
             return jsonResults;
-        } catch (Exception e) {
+        } catch (Exception ignored) {
             return null;
         }
     }
 
-    public boolean insert(String database, String collection, Document document) {
+    public void insert(String database, String collection, Document document) {
         try {
             MongoDatabase db = client.getDatabase(database);
             MongoCollection<Document> col = db.getCollection(collection);
             col.insertOne(document);
-            return true;
-        } catch (Exception e) {
-            return false;
+        } catch (Exception ignored) {
         }
     }
 
-    public boolean delete(String database, String collection, String query) {
+    public void delete(String database, String collection, String query) {
         try {
             MongoDatabase db = client.getDatabase(database);
             MongoCollection<Document> col = db.getCollection(collection);
             Document doc = Document.parse(query);
             if (doc == null) {
-                return false;
+                return;
             }
             col.deleteOne(doc);
-            return true;
-        } catch (Exception e) {
-            return false;
+        } catch (Exception ignored) {
         }
     }
 

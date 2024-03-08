@@ -41,11 +41,11 @@ public class PlayerQuit implements Listener {
         }
 
         ChannelManager.removeChannel(player);
-        StatsManager.removeEntity(player);
         HealthManager.removeEntity(player);
         ManaManager.removeEntity(player);
         EnergyManager.removeEntity(player);
 
+        StatsManager.unloadStats(player);
         GoldUtils.unloadGold(player.getUniqueId());
 
     }
