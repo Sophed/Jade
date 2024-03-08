@@ -1,0 +1,4 @@
+database:
+  # Connection details
+  uri: "mongodb://localhost:27017"
+  name: "jade"

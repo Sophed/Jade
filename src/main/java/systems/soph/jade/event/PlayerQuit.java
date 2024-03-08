@@ -15,6 +15,7 @@ import systems.soph.jade.party.Party;
 import systems.soph.jade.party.PartyManager;
 import systems.soph.jade.social.ChannelManager;
 import systems.soph.jade.staff.StaffManager;
+import systems.soph.jade.utils.GoldUtils;
 
 public class PlayerQuit implements Listener {
 
@@ -44,6 +45,8 @@ public class PlayerQuit implements Listener {
         HealthManager.removeEntity(player);
         ManaManager.removeEntity(player);
         EnergyManager.removeEntity(player);
+
+        GoldUtils.unloadGold(player.getUniqueId());
 
     }
 

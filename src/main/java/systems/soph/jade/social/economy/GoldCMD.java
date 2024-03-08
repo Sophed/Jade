@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import systems.soph.jade.Palette;
+import systems.soph.jade.utils.GoldUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class GoldCMD implements CommandExecutor, TabExecutor {
         }
 
         if (args.length == 0) {
-            player.sendMessage(Component.text("You have " + GoldManager.getGold(player) + " gold.")
+            player.sendMessage(Component.text("You have " + GoldUtils.getGold(player.getUniqueId()) + " gold.")
                     .color(Palette.ACCENT));
             return true;
         }
@@ -63,19 +64,19 @@ public class GoldCMD implements CommandExecutor, TabExecutor {
             case "set" -> {
                 player.sendMessage(Component.text("You set " + target.getName() + "'s gold to " + amount + ".")
                         .color(Palette.ACCENT));
-                GoldManager.setGold(target, amount);
+                GoldUtils.setGold(target.getUniqueId(), amount);
             }
             case "add" -> {
                 player.sendMessage(Component.text("You added " + amount + " gold to " + target.getName() + ".")
                         .color(Palette.ACCENT));
-                GoldManager.addGold(target, amount);
+                GoldUtils.addGold(target.getUniqueId(), amount);
             }
             case "remove" -> {
                 player.sendMessage(Component.text("You removed " + amount + " gold from " + target.getName() + ".")
                         .color(Palette.ACCENT));
-                GoldManager.removeGold(target, amount);
+                GoldUtils.addGold(target.getUniqueId(), -amount);
             }
-            case "get" -> player.sendMessage(Component.text(target.getName() + " has " + GoldManager.getGold(target) + " gold.")
+            case "get" -> player.sendMessage(Component.text(target.getName() + " has " + GoldUtils.getGold(target.getUniqueId()) + " gold.")
                     .color(Palette.ACCENT));
             default -> {
                 player.sendMessage(Component.text("Invalid subcommand.")

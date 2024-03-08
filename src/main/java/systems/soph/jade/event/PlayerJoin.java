@@ -13,6 +13,7 @@ import systems.soph.jade.social.ChannelManager;
 import systems.soph.jade.social.ChatChannel;
 import systems.soph.jade.social.levelling.LevelManager;
 import systems.soph.jade.staff.StaffManager;
+import systems.soph.jade.utils.GoldUtils;
 
 public class PlayerJoin implements Listener {
 
@@ -46,6 +47,8 @@ public class PlayerJoin implements Listener {
         HealthManager.addEntity(player, stats.getMaxhealth());
         ManaManager.addEntity(player, stats.getIntellect());
         EnergyManager.addEntity(player, stats.getEnergy());
+
+        GoldUtils.loadGold(player.getUniqueId());
 
     }
 
